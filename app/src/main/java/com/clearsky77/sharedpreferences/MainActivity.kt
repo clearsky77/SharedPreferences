@@ -10,6 +10,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         loadText()
+
+        copyBtn.setOnClickListener {
+            val pref = getSharedPreferences("pref", 0 )
+            editTxt2.setText(pref.getString("text_main",""))
+        }
     }
 
     override fun onDestroy() { // 액티비티가 종료될 때 호출된다.
